@@ -1,11 +1,7 @@
 // An implementation of a Training Record as an ArrayList updated by shermina at 12.22pm
 package com.stir.cscu9t4practical1;
 
-
-
-
 import java.util.*;
-
 
 public class TrainingRecord {
     private List<Entry> tr;
@@ -31,6 +27,28 @@ public class TrainingRecord {
        return result;
    } // lookupEntry
    
+   public String lookupEty (int d, int m, int y) {
+       ListIterator<Entry> iter = tr.listIterator();
+       String result = "";
+       while (iter.hasNext()) {
+          Entry current = iter.next();
+          if (current.getDay()==d && current.getMonth()==m && current.getYear()==y) 
+             result = result+current.getEntry();
+            }
+       return result;
+   } // lookupEntry
+   
+   public String removeEntry (String n, int d, int m, int y) {
+       ListIterator<Entry> iter = tr.listIterator();
+       String result = "";
+       while (iter.hasNext()) {
+          Entry current = iter.next();
+          if (current.getName() .equals(n) && current.getDay()==m && current.getYear()==y) 
+             tr.remove(current);
+             result = "Record is Removed";
+            }
+       return result;
+   } // lookupEntry
    
   
    public int getNumberOfEntries(){
